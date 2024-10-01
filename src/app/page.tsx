@@ -15,7 +15,7 @@ export default function Home() {
                 data-target="#profileOptions"
                 data-toggle="modal"
               >
-                <img src="img/avatar.jpg" alt="" />
+                <img src="./img/avatar.jpg" alt="" />
                 <i className="fas fa-cog"></i>
               </div>
             </div>
