@@ -3,99 +3,232 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <header>
+        <div className="container">
+          <div className="row justify-content-between align-items-center">
+            <div className="col-auto">
+              <h1>MyOrderNow</h1>
+            </div>
+            <div className="col-auto">
+              <div
+                className="avatar-container"
+                data-target="#profileOptions"
+                data-toggle="modal"
+              >
+                <img src="img/avatar.jpg" alt="" />
+                <i className="fas fa-cog"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div
+        className="modal fade profile-options-modal"
+        id="profileOptions"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Opciones</h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div className="modal-body">
+              <ul className="profile-options-list">
+                <li>
+                  <a href="#">
+                    <i className="fas fa-user"></i> Mi perfil
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fas fa-map-marker-alt"></i> Mis direcciones
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i className="fas fa-credit-card"></i> Mis tarjetas
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-danger">
+                    <i className="fas fa-times-circle"></i> Cerrar sesión
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main className="main">
+        <div className="container">
+          <div className="search-container">
+            <form>
+              <input type="text" name="searchInput" id="searchInput" />
+              <button type="button" className="btn btn-primary btn-block">
+                Buscar
+              </button>
+            </form>
+          </div>
+          <div className="products-list-container">
+            <h2 className="section-title">Los más pedidos</h2>
+            <ul>
+              <li>
+                <a href="#">
+                  <div className="product-image">
+                    <img src="img/producto1.jpg" alt="" />
+                  </div>
+                  <div className="product-info">
+                    <div className="product-info-inner">
+                      <div className="tags">
+                        <span>Descuento</span>
+                        <span>Envío gratis</span>
+                      </div>
+                      <h3 className="product-name">Burrito especial</h3>
+                      <p className="restaurant">Restaurante de prueba</p>
+                      <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p className="product-price">
+                      <span>$</span>14,99
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <div className="product-image">
+                    <img src="img/producto2.jpg" alt="" />
+                  </div>
+                  <div className="product-info">
+                    <div className="product-info-inner">
+                      <div className="tags">
+                        <span>2x1</span>
+                        <span>Descuento 50%</span>
+                      </div>
+                      <h3 className="product-name">Postre de la casa</h3>
+                      <p className="restaurant">Restaurante de prueba</p>
+                      <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p className="product-price">
+                      <span>$</span>6,99
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <div className="product-image">
+                    <img src="img/producto3.jpg" alt="" />
+                  </div>
+                  <div className="product-info">
+                    <div className="product-info-inner">
+                      <div className="tags">
+                        <span>2x1</span>
+                        <span>Envío gratis</span>
+                        <span>Descuento</span>
+                      </div>
+                      <h3 className="product-name">Salmón</h3>
+                      <p className="restaurant">Restaurante de prueba</p>
+                      <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p className="product-price">
+                      <span>$</span>21,47
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <div className="product-image">
+                    <img src="img/producto4.jpg" alt="" />
+                  </div>
+                  <div className="product-info">
+                    <div className="product-info-inner">
+                      <div className="tags">
+                        <span>Envío gratis</span>
+                      </div>
+                      <h3 className="product-name">Donas glaseadas x6</h3>
+                      <p className="restaurant">Restaurante de prueba</p>
+                      <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p className="product-price">
+                      <span>$</span>9,99
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <div className="product-image">
+                    <img src="img/producto5.jpg" alt="" />
+                  </div>
+                  <div className="product-info">
+                    <div className="product-info-inner">
+                      <div className="tags">
+                        <span>Envío gratis</span>
+                        <span>Combo</span>
+                      </div>
+                      <h3 className="product-name">Mega hamburguesa</h3>
+                      <p className="restaurant">Restaurante de prueba</p>
+                      <div className="stars">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                      </div>
+                    </div>
+                    <p className="product-price">
+                      <span>$</span>15,99
+                    </p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <div className="pt-4 pb-5 text-center">
+              <a href="#" className="btn btn-block btn-link">
+                <span className="d-block mb-2">Ver más productos</span>
+                <i className="fas fa-arrow-down"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
